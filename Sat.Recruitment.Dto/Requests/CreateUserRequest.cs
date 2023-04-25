@@ -7,36 +7,61 @@ namespace Sat.Recruitment.Dto.Requests
 {
     public class CreateUserRequest : IValidatableObject
     {
+        [Required]
         public string Name { get; set; }
+
+        [Required]
+        [EmailAddress]
         public string Email { get; set; }
+
+        [Required]
         public string Address { get; set; }
+
+        [Required]
         public string Phone { get; set; }
+
+        [Required]
         public string UserType { get; set; }
+
+        [Required]
         public decimal Money { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             List<ValidationResult> results = new List<ValidationResult>();
 
-            if (string.IsNullOrWhiteSpace(Name))
-            {
-                results.Add(new ValidationResult("The name is required."));
-            }
+            //if (string.IsNullOrWhiteSpace(Name))
+            //{
+            //    results.Add(new ValidationResult("The name is required."));
+            //}
 
-            if (string.IsNullOrWhiteSpace(Email))
-            {
-                results.Add(new ValidationResult("The email is required."));
-            }
+            //if (string.IsNullOrWhiteSpace(Email))
+            //{
+            //    results.Add(new ValidationResult("The email is required."));
+            //}
 
-            if (string.IsNullOrWhiteSpace(Address))
-            {
-                results.Add(new ValidationResult("The address is required."));
-            }
+            //if (string.IsNullOrWhiteSpace(Address))
+            //{
+            //    results.Add(new ValidationResult("The address is required."));
+            //}
 
-            if (string.IsNullOrWhiteSpace(Phone))
-            {
-                results.Add(new ValidationResult("The phone is required."));
-            }
+            //if (string.IsNullOrWhiteSpace(Phone))
+            //{
+            //    results.Add(new ValidationResult("The phone is required."));
+            //}
+
+            //if (string.IsNullOrWhiteSpace(UserType))
+            //{
+            //    results.Add(new ValidationResult("The UserType is required."));
+            //}
+            //else 
+            //{
+            //    UserType myUserType = Shared.UserType.Normal;
+            //    if (!Enum.TryParse<UserType>(UserType, out myUserType))
+            //    {
+            //        results.Add(new ValidationResult($"The UserType: {UserType}, is not recognized."));
+            //    }
+            //}
 
             UserType myUserType = Shared.UserType.Normal;
             if (!Enum.TryParse<UserType>(UserType, out myUserType))
