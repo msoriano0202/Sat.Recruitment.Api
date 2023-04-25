@@ -78,10 +78,10 @@ namespace Sat.Recruitment.Services
             return user;
         }
 
-        public Result AddUser(User userDto)
+        public Result AddUser(User user)
         {
             var usersFromDB = LoadData();
-            var existsUser = ExistsUser(usersFromDB, userDto);
+            var existsUser = ExistsUser(usersFromDB, user);
 
             var result = new Result();
             if (existsUser)
@@ -90,7 +90,7 @@ namespace Sat.Recruitment.Services
                 return result;
             }
 
-            var inserted = InsertUser(usersFromDB, userDto);
+            var inserted = InsertUser(usersFromDB, user);
             if (inserted)
             {
                 result.IsSuccess = true;
